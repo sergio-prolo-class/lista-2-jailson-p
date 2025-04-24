@@ -22,8 +22,8 @@ dependencies {
     // This dependency is used by the application.
     implementation libs.guava
 
-    // Use packege Princeton
-    implementation files('/app/libs/algs4.jar')
+    // Use package Princeton
+    implementation files('lib/algs4.jar')
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
