@@ -84,7 +84,7 @@ local.properties
 
 # Generated files
 .idea/**/contentModel.xml
-
+.idea
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
@@ -582,7 +582,7 @@ $RECYCLE.BIN/
 ### Gradle ###
 .gradle
 **/build/
-!src/**/build/
+src/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
