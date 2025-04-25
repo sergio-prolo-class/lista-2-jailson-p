@@ -8,7 +8,7 @@ public class App {
                                 ESCALA_MIN      = 0,
                                 ESCALA_MAX_X    = 1000,
                                 ESCALA_MAX_Y    = 600;
-    private final Draw draw;
+    private Draw draw;
 
     public static void main(String[] args) {
         App janela = new App();
