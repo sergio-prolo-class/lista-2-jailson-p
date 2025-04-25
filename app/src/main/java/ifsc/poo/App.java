@@ -6,12 +6,25 @@ package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    private static final int    DIMENSAO_X      = 1000,
+                                DIMENSAO_Y      = 600,
+                                ESCALA_MIN      = 0,
+                                ESCALA_MAX_X    = 1000,
+                                ESCALA_MAX_Y    = 600,
+                                EXIT_ON_CLOSE   = 3;
+    private final Draw janela;
 
     public static void main(String[] args) {
+        App q = new App();
+        q.janela.show();
+        System.out.println (q.janela.getBackgroundColor());
+    }
 
-        Draw asdf;
+    public App() {
+        this.janela = new Draw();
+        this.janela.setCanvasSize(DIMENSAO_X,DIMENSAO_Y);
+        this.janela.setXscale(ESCALA_MIN,ESCALA_MAX_X);
+        this.janela.setYscale(ESCALA_MIN,ESCALA_MAX_Y);
+        this.janela.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
