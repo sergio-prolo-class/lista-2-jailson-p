@@ -26,26 +26,46 @@ public class Grade {
         //Criar um loop para distribuir os retângulos cobrindo uma área 10x10 de retângulos
         String  alpha = "A",
                 numSt = "1";
-        int     posX ,
-                posY;
+
         //Neste loop também acrescenta os rótulos das coordenadas da grade
         draw.setPenColor(Draw.AQUA);
-        for (int yGrade = 1; yGrade <= getDimensaoXgrade() ; yGrade++) {
-            for (int xGrade = 1; xGrade <= getDimensaoYgrade(); xGrade++ ){
+        objetoGrade(draw,1,1,getDimensaoXgrade(),getDimensaoYgrade(),true,alpha,numSt);
+
+    }
+    /**
+     * Desenha células da grade em uma Grade.
+     * <p>
+     * Utiliza coordenadas iniciais e finais para fazer uma
+     * seguência de retângulos vazados ou cheios na grade.
+     * Booleana 'rotulo' = true, imprime os rótulos e retângulos vazados, o contrário somente os retângulos cheios.
+     * Classe {@link Grade}.
+     * </p>
+     *
+     * @author Jailson Pedro
+     * @version 1.0
+     * @since 1.0
+     */
+    public void objetoGrade(Draw draw, int xCelulaInit, int yCelulaInit, int xCelulaEnd,int yCelulaEnd, boolean rotulos,String rotuloVertical,String rotuloHorizontal){
+        int     posX ,
+                posY;
+        for     (int xGrade = yCelulaInit; xGrade <= xCelulaEnd ; xGrade++) {
+            for (int yGrade = xCelulaInit; yGrade <= yCelulaEnd ; yGrade++ ){
                 posX = getX_INIT() + getDimensaoRetX() * xGrade - getDimensaoRetX() / 2;
                 posY = getY_INIT() + getDimensaoRetX() * yGrade - getDimensaoRetY() / 2;
-                draw.rectangle(posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
-                if(xGrade == 1) {
-                    draw.text(posX - getDimensaoRetX(), posY , alpha);
-                    alpha = Character.toString(alpha.
-                            charAt(0) + 1);
+                if (rotulos)draw.rectangle(posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
+                else draw.filledRectangle (posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
+
+                if(xGrade == 1 && rotulos) {
+                    draw.text(posX - getDimensaoRetX(), posY , rotuloVertical);
+                    rotuloVertical = Character.toString(rotuloVertical.charAt(0) + 1);
                 }
-                if(yGrade == 1) {
-                    draw.text(posX, posY - getDimensaoRetY(), numSt);
-                    numSt = String.valueOf(Integer.parseInt(numSt) + 1);
+                else if(yGrade == 1) {
+                    draw.text(posX, posY - getDimensaoRetY(), rotuloHorizontal);
+                    rotuloHorizontal = String.valueOf(Integer.parseInt(rotuloHorizontal) + 1);
                 }
             }
         }
+
     }
     //Mét. GET, retorna dimensão X do retângulo
     private int getDimensaoRetX(){ return this.dimensaoRetX; }

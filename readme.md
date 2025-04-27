@@ -23,3 +23,11 @@ Modele uma classe chamada Grade que é de desenhar uma grade do tabuleiro de bat
 -[x] Cada célula da grade deve ter dimensão de 40 x 40 pixels.  
 -[x] A grade deve ser desenhada com seu canto inferior esquerdo na posição (x, y) da tela. Os valores de x e y devem ser informados durante a construção do objeto Grade.  
 -[x] A grade deve ser desenhada com rótulos para as linhas e colunas, como na Figura 1.  
+# Etapa 3 
+## Navio  
+ Modele uma classe chamada Navio que é capaz de desenhar um navio em uma grade, como na Figura 2.
+ Especificamente:
+ -[ ] A classe Navio deve ter um método público chamado desenhar que recebe um objeto Draw como argumento.
+ -[ ] O método desenhar deve usar o objeto Draw para desenhar um navio na tela.  
+ -[ ] O objeto Navio deve ser construído com argumentos para definir à qual Grade ele pertence, seu tamanho, posição (x, y) na grade e orientação (vertical ou horizontal) (Por exemplos, o Navio da Figura 2 possui tamanho 5, posição (3, 2) e orientação vertical)  
+ -[ ] O Navio deve ser desenhado como uma série de quadrados coloridos. A dimensão dos quadrados é igual ao tamanho da célula da Grade (40 × 40 pixels). A cor dos quadrados deve ser a mesma dos rótulos da Grade.  

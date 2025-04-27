@@ -4,12 +4,12 @@ import edu.princeton.cs.algs4.Draw;
 
 public class App {
     private static final int DIMENSAO_X   =  1000,
-            DIMENSAO_Y   =  600,
-            ESCALA_MIN   =  0,
-            ESCALA_MAX_X =  1000,
-            ESCALA_MAX_Y =  600,
-            X_INIT =  50,
-            Y_INIT =  50;
+                             DIMENSAO_Y   =  600,
+                             ESCALA_MIN   =  0,
+                             ESCALA_MAX_X =  1000,
+                             ESCALA_MAX_Y =  600,
+                             X_INIT =  50,
+                             Y_INIT =  50;
 
     private final Draw draw;
 
@@ -19,8 +19,9 @@ public class App {
         Grade grade = new Grade(X_INIT,Y_INIT);
         grade.setDimensaoRetangular(40,40);
         grade.desenhar(janela.getDraw());
-
         janela.draw.show();
+        grade.objetoGrade(janela.getDraw(),2,2,5,2,false,"","");
+
     }
 
     public App() {
