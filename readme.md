@@ -31,3 +31,15 @@ Modele uma classe chamada Grade que é de desenhar uma grade do tabuleiro de bat
  -[ ] O método desenhar deve usar o objeto Draw para desenhar um navio na tela.  
  -[ ] O objeto Navio deve ser construído com argumentos para definir à qual Grade ele pertence, seu tamanho, posição (x, y) na grade e orientação (vertical ou horizontal) (Por exemplos, o Navio da Figura 2 possui tamanho 5, posição (3, 2) e orientação vertical)  
  -[ ] O Navio deve ser desenhado como uma série de quadrados coloridos. A dimensão dos quadrados é igual ao tamanho da célula da Grade (40 × 40 pixels). A cor dos quadrados deve ser a mesma dos rótulos da Grade.  
+  # Etapa 4
+  ## Imagem do jogo  
+  Use objetos Grade e Navio para criar uma imagem de um jogo de batalha naval, como na Figura 3.
+  Gerar essa imagem deve ser o comportamento padrão da execução da aplicação (resultado de executar
+  ./gradlew run no terminal).  
+
+
+Para esse fim:
+-[ ] Crie duas grades e posicione elas em lados opostos da tela. A grade da esquerda representa o
+tabuleiro do jogador, enquanto a grade da direita representará os alvos do jogador no tabuleiro inimigo.
+-[ ] Crie cinco navios e posicione-os na grade a esquerda, representando os navios do jogador. Posicioneos como na Figura 3.
+  

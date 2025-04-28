@@ -20,15 +20,12 @@ public class Grade {
     }
 
     public void desenhar(Draw draw) {
-        //Usar um retângulo vazio como célula da grade com dimensão 40X40
-        //draw.rectangle(this.getX_INIT(),this.getY_INIT(),this.getDimensaoRetX() / 2 ,this.getDimensaoRetY() / 2 ) ;
         //linhasAuxiliares(draw,1000,600,50);
         //Criar um loop para distribuir os retângulos cobrindo uma área 10x10 de retângulos
         String  alpha = "A",
                 numSt = "1";
 
         //Neste loop também acrescenta os rótulos das coordenadas da grade
-        draw.setPenColor(Draw.AQUA);
         objetoGrade(draw,1,1,getDimensaoXgrade(),getDimensaoYgrade(),true,alpha,numSt);
 
     }
@@ -87,11 +84,12 @@ public class Grade {
         this.dimensaoRetX = dimX;
         this.dimensaoRetY = dimY;
     }
+
     private void linhasAuxiliares(Draw draw, int pixelX, int pixelY, int escala){
         for(int i = 0; i <= pixelX; i+=escala){
-            draw.setPenColor(Draw.BOOK_LIGHT_BLUE);
+            draw.setPenColor(Draw.OLIVE);
             draw.line(i,0,i,pixelY);
-            draw.setPenColor(Draw.BOOK_LIGHT_BLUE);
+            draw.setPenColor(Draw.GRAY);
             draw.line(0,i,pixelX,i);
         }
 

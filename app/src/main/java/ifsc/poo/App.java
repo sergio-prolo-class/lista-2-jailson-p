@@ -9,7 +9,10 @@ public class App {
                              ESCALA_MAX_X =  1000,
                              ESCALA_MAX_Y =  600,
                              X_INIT =  50,
-                             Y_INIT =  50;
+                             Y_INIT =  50,
+                             DIM_X_RETANGULO = 40,
+                             DIM_Y_RETANGULO = 40;
+    private static final String TITULO = "Batalha Naval";
 
     private final Draw draw;
 
@@ -17,21 +20,34 @@ public class App {
         App janela = new App();
 
         Grade grade = new Grade(X_INIT,Y_INIT);
-        grade.setDimensaoRetangular(40,40);
+        janela.getDraw().setPenColor(Draw.GREEN);
+        grade.setDimensaoRetangular(DIM_X_RETANGULO,DIM_Y_RETANGULO);
         grade.desenhar(janela.getDraw());
+
+        //área de testes início:
+        Grade grade1 = new Grade(550,50);
+        janela.getDraw().setPenColor(Draw.BLUE);
+        grade.setDimensaoRetangular(DIM_X_RETANGULO,DIM_Y_RETANGULO);
+        grade1.desenhar(janela.getDraw());
+        janela.getDraw().setVisible(false);
+        grade.objetoGrade(janela.getDraw(),2,2,5,2,false,"","");//<------tete barco
+
+        //área de testes fim:
+
         janela.draw.show();
-        grade.objetoGrade(janela.getDraw(),2,2,5,2,false,"","");
 
     }
 
     public App() {
-
         this.draw = new Draw();
+        this.draw.setTitle(TITULO);
         this.draw.setCanvasSize(DIMENSAO_X,DIMENSAO_Y);
+        //this.draw.setScale(ESCALA_MIN,ESCALA_MAX_X);<-----------dúvida sobre necessidade TODO avaliar a necessidade de .setScale
         this.draw.setXscale(ESCALA_MIN,ESCALA_MAX_X);
         this.draw.setYscale(ESCALA_MIN,ESCALA_MAX_Y);
         this.draw.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
     }
+
     private Draw getDraw(){return this.draw;}
 
     @Override
