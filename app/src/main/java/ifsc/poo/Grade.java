@@ -3,6 +3,8 @@ package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
 
 public class Grade {
+    private static String alpha = "A";
+    private static String numSt = "0";
     private final int   X_INIT,
             Y_INIT;
     private int dimensaoRetX,
@@ -22,9 +24,6 @@ public class Grade {
     public void desenhar(Draw draw) {
         //linhasAuxiliares(draw,1000,600,50);
         //Criar um loop para distribuir os retângulos cobrindo uma área 10x10 de retângulos
-        String  alpha = "A",
-                numSt = "1";
-
         //Neste loop também acrescenta os rótulos das coordenadas da grade
         objetoGrade(draw,1,1,getDimensaoXgrade(),getDimensaoYgrade(),true,alpha,numSt);
 
@@ -34,7 +33,7 @@ public class Grade {
      * <p>
      * Utiliza coordenadas iniciais e finais para fazer uma
      * seguência de retângulos vazados ou cheios na grade.
-     * Booleana 'rotulo' = true, imprime os rótulos e retângulos vazados, o contrário somente os retângulos cheios.
+     * Booleana 'reg' = true, desenha retângulos vazados, o contrário somente os retângulos cheios.
      * Classe {@link Grade}.
      * </p>
      *
@@ -42,21 +41,23 @@ public class Grade {
      * @version 1.0
      * @since 1.0
      */
-    public void objetoGrade(Draw draw, int xCelulaInit, int yCelulaInit, int xCelulaEnd,int yCelulaEnd, boolean rotulos,String rotuloVertical,String rotuloHorizontal){
+    public void objetoGrade(Draw draw, int xCelulaInit, int yCelulaInit, int xCelulaEnd,int yCelulaEnd, boolean retanguloVazado,String rotuloVertical,String rotuloHorizontal){
         int     posX ,
                 posY;
-        for     (int xGrade = yCelulaInit; xGrade <= xCelulaEnd ; xGrade++) {
-            for (int yGrade = xCelulaInit; yGrade <= yCelulaEnd ; yGrade++ ){
+        for (int xGrade = xCelulaInit; xGrade <= xCelulaEnd ; xGrade++) {
+            for (int yGrade = yCelulaInit; yGrade <= yCelulaEnd ; yGrade++ ){
                 posX = getX_INIT() + getDimensaoRetX() * xGrade - getDimensaoRetX() / 2;
                 posY = getY_INIT() + getDimensaoRetX() * yGrade - getDimensaoRetY() / 2;
-                if (rotulos)draw.rectangle(posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
-                else draw.filledRectangle (posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
 
-                if(xGrade == 1 && rotulos) {
+                if (retanguloVazado)draw.rectangle(posX, posY, getDimensaoRetX() /2, getDimensaoRetY()/2);
+                else draw.filledRectangle (posX, posY, (getDimensaoRetX() /2), (getDimensaoRetY()/2));
+
+                //Desenha os rótulos
+                if(xGrade == 1 && retanguloVazado) {
                     draw.text(posX - getDimensaoRetX(), posY , rotuloVertical);
                     rotuloVertical = Character.toString(rotuloVertical.charAt(0) + 1);
                 }
-                else if(yGrade == 1) {
+                if(yGrade == 1 && retanguloVazado) {
                     draw.text(posX, posY - getDimensaoRetY(), rotuloHorizontal);
                     rotuloHorizontal = String.valueOf(Integer.parseInt(rotuloHorizontal) + 1);
                 }
@@ -92,6 +93,5 @@ public class Grade {
             draw.setPenColor(Draw.GRAY);
             draw.line(0,i,pixelX,i);
         }
-
     }
 }
